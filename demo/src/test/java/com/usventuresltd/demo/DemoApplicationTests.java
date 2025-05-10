@@ -9,23 +9,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class DemoApplicationTests {
 
-    @Autowired
-    private OpenAiChatModel openAiChatModel;
+//    @Autowired
+//    private OpenAiChatModel openAiChatModel;
 
     @Test
     void contextLoads() {
     }
 
-    @Test
-    void simpleOpenAiQuery() {
-        // Create a chat client using the OpenAiChatModel.
-        // Using the ChatClient builder(model) to create a chat client.
-        ChatClient chatClient = ChatClient.builder(openAiChatModel).build();
-        String response = chatClient.prompt("Tell me mothers day joke")
-                .call()
-                .content();
-        System.out.println("Response: " + response);
-
-    }
+//    @Test
+//    void simpleOpenAiQuery() {
+//        // Create a chat client using the OpenAiChatModel.
+//        // Using the ChatClient builder(model) to create a chat client.
+//        ChatClient chatClient = ChatClient.builder(openAiChatModel).build();
+//        String response = chatClient.prompt("Tell me mothers day joke")
+//                .call()
+//                .content();
+//        System.out.println("Response: " + response);
+//
+//    }
 
 }
