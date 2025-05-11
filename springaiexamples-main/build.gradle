@@ -40,6 +40,7 @@ dependencyManagement {
 tasks.named('test', Test) {
     useJUnitPlatform()
     jvmArgs += ['-Xshare:off']
+    //jvmArgs = listOf("-Xshare:off", "-XX:+EnableDynamicAgentLoading")
 }
 
 tasks.withType(JavaExec).configureEach {
