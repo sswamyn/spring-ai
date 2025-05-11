@@ -2,6 +2,7 @@ package com.usventuresltd.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -54,5 +55,19 @@ class DemoApplicationTests {
                 .call()
                 .content();
         System.out.println("Response: " + answer);
+    }
+
+    // Using Advisor
+    @Test
+    void simpleOpenAiQueryWithAdvisor() {
+        // Create a chat client using the OpenAiChatModel.
+        // Using the ChatClient builder(model) to create a chat client.
+        ChatClient chatClient = ChatClient.builder(openAiChatModel).build();
+        String response = chatClient.prompt("Tell me dad joke")
+                .advisors(new SimpleLoggerAdvisor())
+                .call()
+                .content();
+        System.out.println("Response: " + response);
+
     }
 }
